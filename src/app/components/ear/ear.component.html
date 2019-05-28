@@ -1,0 +1,48 @@
+<div class="container">
+  <ul>
+    <li style="display: inline;">
+      <h5>Style</h5>
+    </li>
+    <li *ngFor="let style of styles" style="display: inline;">
+      <a (click)="getBands(style);" class="badge badge-warning" *ngIf="selectedStyle != style" style="margin-right: 7px;">{{ style }}</a>
+      <a (click)="getBands(style);" class="badge badge-warning" *ngIf="selectedStyle == style" style="margin-right: 7px; background-color: #dd6f1d;">{{ style }}</a>
+    </li>
+  </ul>
+
+  <ul>
+    <li style="display: inline;">
+      <h5>{{ selectedStyle }}</h5>
+    </li>
+    <li *ngFor="let band of bands" style="display: inline;">
+      <a (click)="getDiscs(selectedStyle, band);" class="badge badge-warning" *ngIf="selectedBand != band" style="margin-right: 7px;">{{ band }}</a>
+      <a (click)="getDiscs(selectedStyle, band);" class="badge badge-warning" *ngIf="selectedBand == band" style="margin-right: 7px; background-color: #dd6f1d;">{{ band }}</a>
+    </li>
+  </ul>
+
+  <ul>
+    <li style="display: inline;">
+      <h5>{{ selectedBand }}</h5>
+    </li>
+    <li *ngFor="let disc of discs" style="display: inline;">
+      <a (click)="getSongs(selectedStyle, selectedBand, disc);" class="badge badge-warning" *ngIf="selectedDisc != disc" style="margin-right: 7px;">{{ disc }}</a>
+      <a (click)="getSongs(selectedStyle, selectedBand, disc);" class="badge badge-warning" *ngIf="selectedDisc == disc" style="margin-right: 7px; background-color: #dd6f1d">{{ disc }}</a>
+    </li>
+  </ul>
+
+  <ul *ngIf="selectedDisc">
+    <li style="display: inline;">
+      <h5>{{ selectedDisc }} {{ selectedSong }}</h5>
+    </li>
+    <li *ngFor="let song of songs">
+      <a (click)="getSong(selectedStyle, selectedBand, selectedDisc, song);" *ngIf="selectedSong != song">{{ song }}</a>
+      <a (click)="getSong(selectedStyle, selectedBand, selectedDisc, song);" *ngIf="selectedSong == song" style="color: #dd6f1d">{{ song }}</a>
+    </li>
+  </ul>
+
+  <div id="contenedorAudio"></div>
+  <div *ngIf="selectedSong != ''" style="margin-bottom: 7px">
+    <button class="btn btn-dark" style="width: 50%; background-color: #556B2F;" (click)="prevSong(selectedSong)">Prev</button>
+    <button class="btn btn-dark" style="width: 50%; background-color: #556B2F;" (click)="nextSong(selectedSong)">Next</button>
+  </div>
+
+</div>

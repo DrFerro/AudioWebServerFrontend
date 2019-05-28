@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+header {
+    background-color: #556B2F;
+    border-bottom: 2px solid #dd6f1d ;
+
+}
+
+body {
+    background-color: #1c1c1c;
+    color: #556B2F;
+}
+
+a {
+    cursor: pointer;
+}
+
+p {
+    margin-top: 17px;
+    text-align: center;
+}
+
+#audioId {
+    background-color: #556B2F;
+    width: 100%;
+}

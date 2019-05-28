@@ -1,0 +1,25 @@
+<div class="card" style="margin: auto; width: 300px; padding:17px; margin-top: 17px; text-align: center; border: 2px solid #E47B08;">
+    <div class="alert alert-info" role="alert">
+        <h4>Audio Web Server</h4>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" formControlName="username" class="form-control" style="text-align: center;"
+                [ngClass]="{ 'is-invalid': submitted && formControls.username.errors }" placeholder="Name" />
+            <div *ngIf="submitted && formControls.username.errors" class="invalid-feedback">
+                <div *ngIf="formControls.username.errors.required">Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="password" formControlName="password" class="form-control" style="text-align: center;"
+                [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }" placeholder="Password" />
+            <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+                <div *ngIf="formControls.password.errors.required">Password is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-dark" style="width: 100%;">Login</button>
+        </div>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    </form>
+</div>
